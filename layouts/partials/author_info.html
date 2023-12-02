@@ -13,7 +13,13 @@
     </div>
     <div class="author-content">
     <p class="author-title">{{ i18n "author" }}</p>
-    <p class="author-name">{{ $author_name }}</p>
+    <p class="author-name">
+      {{- if reflect.IsSlice $author_name -}}
+        {{ delimit $author_name ", " }}
+      {{- else -}}
+        {{ $author_name }}
+      {{- end -}}
+    </p>
     {{ with $author_desc -}}
     <p class="author-desc">{{ . | markdownify }}</p>
     {{- end }}

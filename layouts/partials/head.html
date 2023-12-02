@@ -28,7 +28,11 @@
 {{- $author := (index ($.Site.Data.authors | default dict) $author_id) -}}
 {{- $author_lang := (index ($author | default dict) .Site.Language.Lang) -}}
 {{- $author_name := $author_lang.name.display | default $author.name.display | default $author_id -}}
+{{- if reflect.IsSlice $author_name -}}
+<meta name="author" content="{{ delimit $author_name ", " | safeHTML }}" />
+{{- else -}}
 <meta name="author" content="{{ $author_name | safeHTML }}" />
+{{- end -}}
 {{- end -}}
 
 {{- if .Description -}}

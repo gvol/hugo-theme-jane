@@ -8,7 +8,13 @@
       {{- $author_lang := (index ($author | default dict) .Site.Language.Lang) -}}
       {{- $author_name := $author_lang.name.display | default $author.name.display | default $author_id -}}
       {{- with $.Site.GetPage "taxonomy" (printf "author/%s" $author_id) -}}
-      <a href="{{ .Permalink }}">{{ $author_name | safeHTML }}</a>
+      <a href="{{ .Permalink }}">
+        {{- if reflect.IsSlice $author_name -}}
+          {{ delimit $author_name ", " | safeHTML }}
+        {{- else -}}
+          {{ $author_name | safeHTML }}
+        {{- end -}}
+      </a>
       {{- else -}}
       {{- $author_name | safeHTML -}}
       {{- end -}}

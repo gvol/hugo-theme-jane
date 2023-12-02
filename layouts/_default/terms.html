@@ -89,7 +89,12 @@
                 {{- $author := (index ($.Site.Data.authors | default dict) $term) -}}
                 {{- $author_lang := (index ($author | default dict) $.Site.Language.Lang) -}}
                 {{- $author_name := $author_lang.name.display | default $author.name.display | default $term -}}
-                {{ i18n "author_item" }}{{ $author_name }}
+                {{ i18n "author_item" }}
+                {{- if reflect.IsSlice $author_name -}}
+                  {{ delimit $author_name ", " }}
+                {{- else -}}
+                  {{ $author_name }}
+                {{- end -}}
               </a>
             </h2>
           </div>
