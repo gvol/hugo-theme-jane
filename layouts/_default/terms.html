@@ -90,7 +90,7 @@
                 {{- $author_lang := (index ($author | default dict) $.Site.Language.Lang) -}}
                 {{- $author_name := $author_lang.name.display | default $author.name.display | default $term -}}
                 {{ i18n "author_item" }}
-                {{- if reflect.IsSlice $author_name -}}
+                {{ if reflect.IsSlice $author_name -}}
                   {{ delimit $author_name ", " }}
                 {{- else -}}
                   {{ $author_name }}

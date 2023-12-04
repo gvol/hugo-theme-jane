@@ -17,11 +17,11 @@
         </span>
       </a>
     {{ else }}
-      {{- if reflect.IsSlice $author_name -}}
+      {{ if reflect.IsSlice $author_name -}}
         {{ delimit $author_name ", " | safeHTML }}
-      {{- else -}}
+      {{ else }}
         {{ $author_name | safeHTML }}
-      {{- end -}}
+      {{- end }}
     {{ end }}
   </div>
 

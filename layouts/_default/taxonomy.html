@@ -27,9 +27,9 @@
       {{- $author_name := $author_lang.name.display | default $author.name.display | default .Title -}}
       <div class="archive-title author">
         <h2 class="archive-name">{{ i18n "author_item" }}
-          {{- if reflect.IsSlice $author_name -}}
+          {{ if reflect.IsSlice $author_name -}}
             {{ delimit $author_name ", " }}
-          {{- else -}}
+          {{ else }}
             {{ $author_name }}
           {{- end -}}</h2>
       </div>
