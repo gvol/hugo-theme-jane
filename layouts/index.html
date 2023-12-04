@@ -1,4 +1,18 @@
 {{ define "content" }}
+index.html template
+{{ .IsHome | safeHTML }}
+{{ .Site.RegularPages | safeHTML }}
+{{- if site.IsServer -}}
+  {{- partial "wtfhugo.html" . }}
+{{- end -}}
+
+<div id="content" class="content">
+  <article class="post">
+    <div class="post-content">
+      {{ .Content }}
+    </div>
+  </article>
+</div>
 <section id="posts" class="posts">
   {{ $pages := .Pages }}
   {{ if .IsHome }}
@@ -6,7 +20,8 @@
   {{ end }}
   {{ $paginator := .Paginate $pages }}
   {{ range $paginator.Pages }}
-    {{ .Render "summary" }}
+    blah{{ .Render "summary" }}blah
+    blergh{{ .Render "index" }}blergh
   {{ end }}
 </section>
 
