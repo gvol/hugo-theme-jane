@@ -1,7 +1,4 @@
 {{ define "content" }}
-index.html template
-{{ .IsHome | safeHTML }}
-{{ .Site.RegularPages | safeHTML }}
 {{- if site.IsServer -}}
   {{- partial "wtfhugo.html" . }}
 {{- end -}}
