@@ -14,11 +14,12 @@
   {{ $pages := .Pages }}
   {{ if .IsHome }}
     {{ $pages = where .Site.RegularPages "Type" "in" site.Params.mainSections }}
+    {{ $pages = where .Site.RegularPages "Section" "in" site.Params.mainSections }}
   {{ end }}
   {{ $paginator := .Paginate $pages }}
   {{ range $paginator.Pages }}
-    blah{{ .Render "summary" }}blah
-    blergh{{ .Render "index" }}blergh
+    {{ .Render "summary" }}
+    {{ .Render "index" }}
   {{ end }}
 </section>
 
