@@ -40,3 +40,36 @@ blockquote {
     padding-left: .3em;
   }
 }
+
+// This is copy/paste of the above (removing the " from before), but I
+// think I might want to change it so I don't want to put too much
+// effort into factoring it well.
+aside {
+  margin: 1em auto;
+  color: #555555;
+  background-color: #F6F6F6;
+  border-left: 4px solid #999;
+  position: relative;
+  line-height: 1.6;
+  font-family: Open Sans;
+
+  @include min-screen() {
+    padding: 0.2em 2em 0.2em 3em;
+
+  }
+
+  @include max-screen() {
+    padding: 0.2em 1em;
+  }
+
+  footer {
+    color: #333333;
+    margin-bottom: 1em;
+  }
+
+  cite:before {
+    content: '\2014';
+    padding-right: .3em;
+    padding-left: .3em;
+  }
+}
