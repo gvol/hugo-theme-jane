@@ -66,7 +66,8 @@
   //     margin-left: -10px;
   //   }
   .fn-text {
-    // line-height: 1.35;
+    // The footnote is contained in a <sup> which sets the line-height to 0
+    line-height: 1.25;
     display: inline-block;
     padding: 1em;
     font-size: 1.2em;
