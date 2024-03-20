@@ -65,6 +65,12 @@ a {
   text-decoration: none;
 }
 
+.post-content a {
+  color: $theme-color;
+  background-color: $deputy-color;
+  text-decoration: none;
+}
+
 @each $header, $size in $global-headings {
   #{$header} {
     font-size: $size;
