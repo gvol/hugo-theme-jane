@@ -18,9 +18,15 @@
           <a class="menu-item-link menu-parent" href="{{ .URL | absLangURL | safeURL }}">{{ .Name }}</a>
           <ul class="submenu">
             {{ range .Children }}
+              {{ if hasPrefix .URL "/raven/" }}
+              <li class="submenu-item">
+                <a href="https://irandrus.wordpress.com/">{{ .Name }}</a>
+              </li>
+              {{ else }}
               <li class="submenu-item">
                 <a href="{{ .URL | absLangURL | safeURL }}">{{ .Name }}</a>
               </li>
+              {{ end }}
             {{ end }}
           </ul>
 
