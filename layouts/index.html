@@ -1,5 +1,5 @@
 {{ define "content" }}
-{{- if site.IsServer -}}
+{{- if hugo.IsServer -}}
   {{- partial "wtfhugo.html" . }}
 {{- end -}}
 
