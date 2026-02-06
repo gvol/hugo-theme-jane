@@ -115,9 +115,9 @@
 <![endif]-->` | safeHTML }}
 
 <!-- Analytics -->
-{{- if and (not hugo.IsServer) .Site.GoogleAnalytics -}}
-  {{ template "_internal/google_analytics.html" . }}
-{{- end -}}
+<!-- {{- if and (not hugo.IsServer) .Site.GoogleAnalytics -}} -->
+<!--   {{ template "_internal/google_analytics.html" . }} -->
+<!-- {{- end -}} -->
 
 <!-- Custom head -->
 {{ partial "custom_head.html" . }}
