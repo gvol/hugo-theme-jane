@@ -16,11 +16,11 @@
         {{ partial "svg/heart.svg" }}
       </i>
     </span>
-    {{- if or .Site.Copyright (or .Site.Params.author.name .Site.Author.name) -}}
+    {{- if or .Site.Copyright .Site.Params.author.name -}}
       <span class="author">
         {{if .Site.Copyright }}{{ .Site.Copyright | safeHTML }}
-        {{ else if reflect.IsSlice }}{{ delimit .Site.Author.name ", " | safeHTML }}
-        {{ else }}{{ or .Site.Params.author.name .Site.Author.name | safeHTML }}
+        {{ else if reflect.IsSlice .Site.Params.author.name }}{{ delimit .Site.Params.author.name ", " | safeHTML }}
+        {{ else }}{{ .Site.Params.author.name | safeHTML }}
         {{ end }}
       </span>
     {{- end -}}
