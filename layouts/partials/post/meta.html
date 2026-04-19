@@ -10,7 +10,7 @@
     {{- end -}}
     {{- if $author_id -}}
       by
-      {{- $author := (index ($.Site.Data.authors | default dict) $author_id) -}}
+      {{- $author := (index (hugo.Data.authors | default dict) $author_id) -}}
       {{- $author_lang := (index ($author | default dict) .Site.Language.Lang) -}}
       {{- $author_name := $author_lang.name.display | default $author.name.display | default $author_id -}}
       {{- $author_url := $author_lang.url | default $author.url | default .Site.Params.author.url -}}
