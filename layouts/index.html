@@ -19,7 +19,6 @@
   {{ $paginator := .Paginate $pages }}
   {{ range $paginator.Pages }}
     {{ .Render "summary" }}
-    {{ .Render "index" }}
   {{ end }}
 </section>
 
