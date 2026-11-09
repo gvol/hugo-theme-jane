@@ -6,6 +6,10 @@
       {{ .Site.Title }}
     {{ end }}
   </a>
+  {{/* Set deployedURL only in development config to compare local and live pages */}}
+  {{ with .Site.Params.deployedURL }}
+    <a href="{{ urls.JoinPath . $.RelPermalink }}" class="deployed-link" title="View deployed version">🌐</a>
+  {{ end }}
 </div>
 
 <nav class="site-navbar">

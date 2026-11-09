@@ -7,6 +7,13 @@
     font-size: $logo-font-size;
     font-family: $logo-font-family;
   }
+
+  .deployed-link {
+    margin-left: 0.4em;
+    font-size: 0.6em;
+    vertical-align: middle;
+    text-decoration: none;
+  }
 }
 
 @include max-screen() {
