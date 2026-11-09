@@ -19,16 +19,16 @@
         <li class="menu-item{{ if $currentPage.IsMenuCurrent "main" . }} active{{end}}">
         {{ if .HasChildren }}
           <!-- drop down navigation MENU -->
-          <a class="menu-item-link menu-parent" href="{{ .URL | absLangURL | safeURL }}">{{ .Name }}</a>
+          <a class="menu-item-link menu-parent" href="{{ .URL | absLangURL | safeURL }}">{{ .Name }}{{ partial "draft-badge.html" .Page }}</a>
           <ul class="submenu">
             {{ range .Children }}
               {{ if hasPrefix .URL "/raven/" }}
               <li class="submenu-item">
-                <a href="https://irandrus.wordpress.com/">{{ .Name }}</a>
+                <a href="https://irandrus.wordpress.com/">{{ .Name }}{{ partial "draft-badge.html" .Page }}</a>
               </li>
               {{ else }}
               <li class="submenu-item">
-                <a href="{{ .URL | absLangURL | safeURL }}">{{ .Name }}</a>
+                <a href="{{ .URL | absLangURL | safeURL }}">{{ .Name }}{{ partial "draft-badge.html" .Page }}</a>
               </li>
               {{ end }}
             {{ end }}
@@ -38,14 +38,14 @@
           <!-- normal MENU -->
           {{ if hasPrefix .URL "http" }}
             <a class="menu-item-link" href="{{ .URL | absLangURL | safeURL }}" rel="noopener" target="_blank">
-              {{ .Name }}
+              {{ .Name }}{{ partial "draft-badge.html" .Page }}
               {{/* icon new window */}}
               <i class="iconfont">
                 {{ partial "svg/new_window.svg" }}
               </i>
             </a>
           {{ else }}
-            <a class="menu-item-link" href="{{ .URL | absLangURL | safeURL }}">{{ .Name }}</a>
+            <a class="menu-item-link" href="{{ .URL | absLangURL | safeURL }}">{{ .Name }}{{ partial "draft-badge.html" .Page }}</a>
           {{ end }}
 
         {{ end  }}

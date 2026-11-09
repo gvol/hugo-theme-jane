@@ -24,13 +24,13 @@
           <div class="mobile-menu-parent">
             <span class="mobile-submenu-open"></span>
             <a href="{{ .URL | absLangURL | safeURL }}">
-              {{ .Name }}
+              {{ .Name }}{{ partial "draft-badge.html" .Page }}
             </a>
           </div>
           <ul class="mobile-submenu-list">
             {{ range .Children }}
               <li>
-                <a href="{{ .URL | absLangURL | safeURL }}">{{ .Name }}</a>
+                <a href="{{ .URL | absLangURL | safeURL }}">{{ .Name }}{{ partial "draft-badge.html" .Page }}</a>
               </li>
             {{ end }}
           </ul>
@@ -38,14 +38,14 @@
           <!-- normal MENU -->
           {{ if hasPrefix .URL "http" }}
             <a class="menu-item-link" href="{{ .URL | absLangURL | safeURL }}" rel="noopener" target="_blank">
-              {{ .Name }}
+              {{ .Name }}{{ partial "draft-badge.html" .Page }}
               {{/* icon new window */}}
               <i class="iconfont">
                 {{ partial "svg/new_window.svg" }}
               </i>
             </a>
           {{ else }}
-            <a class="menu-item-link" href="{{ .URL | absLangURL | safeURL }}">{{ .Name }}</a>
+            <a class="menu-item-link" href="{{ .URL | absLangURL | safeURL }}">{{ .Name }}{{ partial "draft-badge.html" .Page }}</a>
           {{ end }}
         {{ end  }}
       </li>

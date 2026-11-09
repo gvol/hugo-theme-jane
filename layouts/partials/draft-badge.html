@@ -1,0 +1,2 @@
+{{- /* Marks draft pages. Production builds omit drafts, so this only shows when building with drafts (e.g. hugo server -D). Accepts a Page or nil (menu entries without a page). */ -}}
+{{- with . }}{{ if .Draft }} <span class="draft-badge" title="Draft: will not be published">DRAFT</span>{{ end }}{{ end -}}
