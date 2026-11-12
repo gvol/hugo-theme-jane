@@ -31,6 +31,15 @@
             {{ range .Children }}
               <li>
                 <a href="{{ .URL | absLangURL | safeURL }}">{{ .Name }}{{ partial "draft-badge.html" .Page }}</a>
+                {{ if .HasChildren }}
+                <ul class="mobile-submenu-nested">
+                  {{ range .Children }}
+                  <li>
+                    <a href="{{ .URL | absLangURL | safeURL }}">{{ .Name }}{{ partial "draft-badge.html" .Page }}</a>
+                  </li>
+                  {{ end }}
+                </ul>
+                {{ end }}
               </li>
             {{ end }}
           </ul>

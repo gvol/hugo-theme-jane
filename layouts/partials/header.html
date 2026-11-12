@@ -27,8 +27,17 @@
                 <a href="https://irandrus.wordpress.com/">{{ .Name }}{{ partial "draft-badge.html" .Page }}</a>
               </li>
               {{ else }}
-              <li class="submenu-item">
+              <li class="submenu-item{{ if .HasChildren }} submenu-parent{{ end }}">
                 <a href="{{ .URL | absLangURL | safeURL }}">{{ .Name }}{{ partial "draft-badge.html" .Page }}</a>
+                {{ if .HasChildren }}
+                <ul class="submenu submenu-nested">
+                  {{ range .Children }}
+                  <li class="submenu-item">
+                    <a href="{{ .URL | absLangURL | safeURL }}">{{ .Name }}{{ partial "draft-badge.html" .Page }}</a>
+                  </li>
+                  {{ end }}
+                </ul>
+                {{ end }}
               </li>
               {{ end }}
             {{ end }}

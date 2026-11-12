@@ -49,7 +49,27 @@
     }
   }
 
-  &:hover .submenu {
+  .submenu-parent {
+    position: relative;
+
+    > a:after {
+      content: ' \203A';
+    }
+
+    &:hover > .submenu {
+      visibility: visible;
+      transition-delay: 0s;
+    }
+  }
+
+  .submenu-nested {
+    left: 100%;
+    top: -1px;
+  }
+
+  /* Only the top-level dropdown opens on hover of the menu bar item;
+     nested dropdowns open on hover of their own parent item. */
+  &:hover > .submenu {
     visibility: visible;
     transition-delay: 0s; /* react immediately on hover */
   }

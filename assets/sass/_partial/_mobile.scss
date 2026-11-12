@@ -126,6 +126,11 @@
       content: '- '
     }
   }
+
+  .mobile-submenu-nested {
+    padding-left: 1em;
+    list-style: none;
+  }
 }
 
 @include max-screen() {
