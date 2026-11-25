@@ -33,6 +33,11 @@
     transition: 0.2s 0.2s; /* delay of seconds on hover off */
     z-index: 99;
 
+    &.submenu-align-right {
+      left: auto;
+      right: 0;
+    }
+
     .submenu-item {
       border-bottom: 1px solid #ddd;
 
@@ -65,6 +70,11 @@
   .submenu-nested {
     left: 100%;
     top: -1px;
+
+    &.submenu-flyout-left {
+      left: auto;
+      right: 100%;
+    }
   }
 
   /* Only the top-level dropdown opens on hover of the menu bar item;
